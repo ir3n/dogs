@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import ImageGrid from "../ImageGrid";
+import Description from "../Description";
 
 export default function ImageGalleryCsr() {
   const [images, setImages] = useState<[]>([]);
@@ -46,5 +47,14 @@ export default function ImageGalleryCsr() {
     );
   if (error) return <div className="py-5 md:py-10">{error}</div>;
 
-  return <ImageGrid images={images} />;
+  return (
+    <>
+      <ImageGrid images={images} />
+      <Description
+        text="These images are coming from a client component. That means that, there
+        is a call to the API when we navigate to this component, so the images
+        change each time."
+      />
+    </>
+  );
 }

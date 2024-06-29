@@ -4,7 +4,7 @@ function ImageGrid({ images }: { images: string[] }) {
   return (
     <>
       {images?.length ? (
-        <div className="py-5 md:py-10 sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="py-5 md:pt-10 sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {images?.map((img, i) => (
             <div
               key={`dog-img-${i}`}

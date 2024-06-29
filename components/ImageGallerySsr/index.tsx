@@ -1,5 +1,6 @@
 import React from "react";
 import ImageGrid from "../ImageGrid";
+import Description from "../Description";
 
 export type ApiResponse = {
   ok: Boolean;
@@ -32,6 +33,17 @@ export default async function ImageGallerySsr() {
   }
 
   if (images?.length) {
-    return <ImageGrid images={images} />;
+    return (
+      <>
+        <ImageGrid images={images} />
+        <Description
+          text="These images are coming from a server component. That means that, as
+          we navigate between the components, there is no call to the API and
+          the images remain the same. Even if we refresh the page. However, if
+          we want to see new images, we can do a hard refresh (Crl + Shift + R /
+          Cmd + Shift + R)."
+        />
+      </>
+    );
   }
 }
