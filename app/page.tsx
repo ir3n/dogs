@@ -1,6 +1,8 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ImageGallerySsr from "@/components/ImageGallerySsr";
 import ImageGalleryCsr from "@/components/ImageGalleryCsr";
+import { Suspense } from "react";
+import LoadingGrid from "@/components/ImageGrid/LoadingGrid";
 
 export default function Home() {
   return (
@@ -15,7 +17,9 @@ export default function Home() {
           <TabsTrigger value="csr">Images CSR</TabsTrigger>
         </TabsList>
         <TabsContent value="ssr">
-          <ImageGallerySsr />
+          <Suspense fallback={<LoadingGrid />}>
+            <ImageGallerySsr />
+          </Suspense>
         </TabsContent>
         <TabsContent value="csr">
           <ImageGalleryCsr />
